@@ -1,3 +1,11 @@
 h1 {
-    color: blueviolet;
+    color: rgb(52, 5, 97);
 }
+body {
+    background-color: rgb(241, 241, 213);
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+form {
+    margin-bottom: 20px;
+}   
