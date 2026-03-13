@@ -1,11 +1,18 @@
+/* ...existing code... */
 h1 {
     color: rgb(52, 5, 97);
+    
 }
 body {
-    background-color: rgb(241, 241, 213);
+    background-color: rgb(223, 202, 157);
     font-family: Arial, sans-serif;
     padding: 20px;
 }
+#btnMostrar {
+    display: inline-block;
+    margin-bottom: 20px; 
+}
 form {
+    margin-top: 12px; 
     margin-bottom: 20px;
-}   
+}

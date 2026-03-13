@@ -1,4 +1,5 @@
 const tarefas = [];
+let indiceEditando = null;
 
 const form = document.querySelector("#formTarefa");
 const input = document.querySelector("#inputTarefa");
@@ -23,17 +24,37 @@ function renderTarefas() {
     for (let i = 0; i < tarefas.length; i++) {
 
         const li = document.createElement("li");
-        li.textContent = tarefas[i] + " ";
+
+        const span = document.createElement("span");
+        span.textContent = tarefas[i] + " ";
+
+        const botaoEditar = document.createElement("button");
+        botaoEditar.textContent = "Editar";
 
         const botaoExcluir = document.createElement("button");
         botaoExcluir.textContent = "Excluir";
 
-        botaoExcluir.addEventListener("click", function () {
-            tarefas.splice(i, 1);
-            renderTarefas();
+        // BOTÃO EDITAR
+        botaoEditar.addEventListener("click", function () {
+
+            input.value = tarefas[i];
+            indiceEditando = i;
+            input.focus();
+
         });
 
+        // BOTÃO EXCLUIR
+        botaoExcluir.addEventListener("click", function () {
+
+            tarefas.splice(i, 1);
+            renderTarefas();
+
+        });
+
+        li.appendChild(span);
+        li.appendChild(botaoEditar);
         li.appendChild(botaoExcluir);
+
         lista.appendChild(li);
     }
 }
@@ -47,7 +68,17 @@ form.addEventListener("submit", function (event) {
         return;
     }
 
-    tarefas.push(textoDigitado);
+    if (indiceEditando !== null) {
+
+        tarefas[indiceEditando] = textoDigitado;
+        indiceEditando = null;
+
+    } else {
+
+        tarefas.push(textoDigitado);
+
+    }
+
     renderTarefas();
 
     input.value = "";
