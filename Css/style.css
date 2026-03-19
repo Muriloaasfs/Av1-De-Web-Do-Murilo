@@ -1,17 +1,90 @@
 /* ...existing code... */
 h1 {
-    color: rgb(52, 5, 97);
-    
+    color: rgb(0, 0, 0);
 }
 body {
-    background-color: rgb(223, 202, 157);
+    margin: 0;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #2a1e3d, #554570);
+    color: #333;
+}
+.page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
     padding: 20px;
+}
+.container,
+.card {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    padding: 28px;
+    box-sizing: border-box;
 }
 #btnMostrar {
     display: inline-block;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
+form {
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+form input,
+form button {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+form button {
+    background: #4a3fa8;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}
+form button:hover {
+    background: #3e2f86;
+}
+#listaTarefas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#listaTarefas li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border: 1px solid #efefef;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: #fafafa;
+}
+#listaTarefas li button {
+    margin-left: 8px;
+    background: #d9534f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+#listaTarefas li button.edit {
+    background: #5bc0de;
+}
+
 form {
     margin-top: 12px; 
     margin-bottom: 20px;

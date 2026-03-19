@@ -7,20 +7,23 @@
     <title>AV1 - Murilo</title>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="card container">
+            <h1>Lista de Tarefas do Murilo</h1>
+            <button id="btnMostrar">Botão Legal</button>
 
-    <h1>Lista de Tarefas do Murilo</h1>
-    <button id="btnMostrar">Botão Legal</button>
+            <form id="formTarefa">
+                <label for="inputTarefa">Digite uma tarefa:</label>
+                <input id="inputTarefa" type="text" placeholder="Ex: Estudar JavaScript">
+                <button type="submit">Adicionar</button>
+            </form>
 
-    <form id="formTarefa">
-        <label for="inputTarefa">Digite uma tarefa:</label>
-        <input id="inputTarefa" type="text" placeholder="Ex: Estudar JavaScript">
-        <button type="submit">Adicionar</button>
-    </form>
+            <p id="mensagemErro"></p>
 
-    <p id="mensagemErro"></p>
-
-    <h2>Tarefas adicionadas:</h2>
-    <ul id="listaTarefas"></ul>
+            <h2>Tarefas adicionadas:</h2>
+            <ul id="listaTarefas"></ul>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
