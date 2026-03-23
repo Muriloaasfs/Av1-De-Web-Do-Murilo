@@ -25,32 +25,47 @@ function renderTarefas() {
 
         const li = document.createElement("li");
 
-        const span = document.createElement("span");
-        span.textContent = tarefas[i] + " ";
+        // CHECKBOX
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = tarefas[i].concluida;
 
+        // TEXTO
+        const span = document.createElement("span");
+        span.textContent = tarefas[i].texto + " ";
+
+        // SE ESTIVER CONCLUÍDA
+        if (tarefas[i].concluida) {
+            span.style.textDecoration = "line-through";
+            span.style.color = "gray";
+        }
+
+        // QUANDO MARCAR CHECKBOX
+        checkbox.addEventListener("change", function () {
+            tarefas[i].concluida = checkbox.checked;
+            renderTarefas();
+        });
+
+        // BOTÃO EDITAR
         const botaoEditar = document.createElement("button");
         botaoEditar.textContent = "Editar";
 
-        const botaoExcluir = document.createElement("button");
-        botaoExcluir.textContent = "Excluir";
-
-        // BOTÃO EDITAR
         botaoEditar.addEventListener("click", function () {
-
-            input.value = tarefas[i];
+            input.value = tarefas[i].texto;
             indiceEditando = i;
             input.focus();
-
         });
 
         // BOTÃO EXCLUIR
-        botaoExcluir.addEventListener("click", function () {
+        const botaoExcluir = document.createElement("button");
+        botaoExcluir.textContent = "Excluir";
 
+        botaoExcluir.addEventListener("click", function () {
             tarefas.splice(i, 1);
             renderTarefas();
-
         });
 
+        li.appendChild(checkbox);
         li.appendChild(span);
         li.appendChild(botaoEditar);
         li.appendChild(botaoExcluir);
@@ -70,12 +85,15 @@ form.addEventListener("submit", function (event) {
 
     if (indiceEditando !== null) {
 
-        tarefas[indiceEditando] = textoDigitado;
+        tarefas[indiceEditando].texto = textoDigitado;
         indiceEditando = null;
 
     } else {
 
-        tarefas.push(textoDigitado);
+        tarefas.push({
+            texto: textoDigitado,
+            concluida: false
+        });
 
     }
 
